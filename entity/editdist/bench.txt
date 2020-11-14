@@ -1,0 +1,65 @@
+goos: linux
+goarch: amd64
+pkg: github.com/gnames/levenshtein/entity/editdist
+BenchmarkDist/CompareOnceMaxOff-8         	 1604438	       736 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1625553	       733 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1605240	       743 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1607449	       746 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1635512	       755 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1627047	       743 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1627448	       741 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1611516	       741 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1618770	       738 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMaxOff-8         	 1645152	       738 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2084752	       581 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2049190	       578 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2051424	       579 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2087812	       589 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2086141	       579 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2042860	       577 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2072294	       583 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2054764	       581 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2086394	       573 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareOnceMax-8            	 2076535	       578 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	281942768	         3.95 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	306604734	         3.91 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	294711284	         3.93 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	303573180	         3.91 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	306407037	         3.92 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	302869888	         3.98 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	305385112	         3.94 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	304115678	         3.91 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	302921658	         3.92 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOffEqual-8       	307218862	         3.92 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	317890561	         3.84 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	323321842	         3.85 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	324952650	         3.85 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	294372260	         3.75 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	321356097	         3.88 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	321846891	         3.78 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	317291719	         3.99 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	322566604	         4.03 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	316380333	         3.84 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOnEqual-8        	312439206	         3.73 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2473166	       491 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2410122	       485 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2461514	       488 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2451094	       487 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2444162	       487 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2451357	       488 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2459239	       489 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2441011	       488 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2451128	       489 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOff-8            	 2453671	       490 ns/op	      32 B/op	       1 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  579518	      2342 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  556737	      2266 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  490562	      2412 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  558429	      2386 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  482224	      2354 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  577255	      2318 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  431072	      2517 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  533060	      2346 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  540312	      2421 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkDist/CompareDiffOn-8             	  572739	      2325 ns/op	    1168 B/op	       7 allocs/op
+PASS
+ok  	github.com/gnames/levenshtein/entity/editdist	99.122s

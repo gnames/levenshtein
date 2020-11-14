@@ -9,8 +9,8 @@ import (
 )
 
 type Output struct {
-	Str1     string `json:"string1"`
-	Str2     string `json:"string2"`
+	String1  string `json:"string1"`
+	String2  string `json:"string2"`
 	Tags1    string `json:"tags1,omitempty"`
 	Tags2    string `json:"tags2,omitempty"`
 	EditDist int    `json:"editDistance"`
@@ -35,7 +35,7 @@ func CSVHeader() string {
 }
 
 func (o Output) encodeCSV() (string, error) {
-	row := []string{o.Str1, o.Str2, o.Tags1, o.Tags2,
+	row := []string{o.String1, o.String2, o.Tags1, o.Tags2,
 		strconv.Itoa(o.EditDist), strconv.FormatBool(o.Aborted),
 	}
 	return gncsv.ToCSV(row), nil

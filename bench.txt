@@ -1,0 +1,25 @@
+goos: linux
+goarch: amd64
+pkg: github.com/gnames/levenshtein
+BenchmarkCompare/CompareOnce-8         	 2395483	       497 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2391777	       502 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2417304	       502 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2405883	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2398431	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2406187	       501 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2398585	       497 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2394523	       498 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2408866	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2406439	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  546103	      2449 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  478765	      2405 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  514708	      2394 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  509046	      2377 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  463485	      2345 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  536911	      2531 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  516193	      2484 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  559826	      2454 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  549289	      2372 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  486375	      2422 ns/op	    1168 B/op	       7 allocs/op
+PASS
+ok  	github.com/gnames/levenshtein	30.784s
