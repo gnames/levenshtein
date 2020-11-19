@@ -109,6 +109,11 @@ func ComputeDistanceMax(a, b string, max int) (int, bool) {
 	return int(x[lenS1]), false
 }
 
+// ComputeDistance computes the levenshtein distance between the two
+// strings passed as arguments. The third argument is a flag that
+// would trigger creation of tagged strings that show how exactly
+// the two strings differ. If the diff artument is true, the tagged
+// strings will be provided in the output.
 func ComputeDistance(a, b string, diff bool) (int, string, string) {
 	if a == b {
 		return 0, a, b

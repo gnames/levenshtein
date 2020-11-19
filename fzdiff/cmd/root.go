@@ -31,6 +31,7 @@ import (
 	"github.com/gnames/gnlib/format"
 	"github.com/gnames/gnlib/sys"
 	"github.com/gnames/levenshtein"
+	"github.com/gnames/levenshtein/presenter"
 	"github.com/spf13/cobra"
 	"gitlab.com/gogna/gnparser/output"
 )
@@ -58,8 +59,8 @@ var rootCmd = &cobra.Command{
 			frmt = format.CSV
 		}
 
-		withDiff, _ := cmd.Flags().GetBool("diff")
-		opts = append(opts, levenshtein.OptWithDiff(withDiff))
+		withTags, _ := cmd.Flags().GetBool("tags")
+		opts = append(opts, levenshtein.OptWithDiff(withTags))
 
 		maxEditDist, _ := cmd.Flags().GetInt("max_edit_distance")
 		opts = append(opts, levenshtein.OptMaxEditDist(maxEditDist))
@@ -87,7 +88,7 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolP("version", "V", false, "Prints version information")
-	rootCmd.Flags().BoolP("diff", "d", false, "Inserts diff tags into strings.")
+	rootCmd.Flags().BoolP("tags", "t", false, "Adds diff tags into strings.")
 	rootCmd.Flags().IntP("max_edit_distance", "m", 0, "Max threshold for edit distance.")
 	rootCmd.Flags().StringP("format", "f", "csv", `Format of the output: "compact", "pretty", "csv".
   compact: compact JSON,
@@ -202,5 +203,12 @@ func compareFile(l levenshtein.Levenshtein, f io.Reader, frmt format.Format) {
 func compareStrings(l levenshtein.Levenshtein, data []string,
 	frmt format.Format) {
 	out := l.Compare(data[0], data[1])
-	fmt.Println(out.Encode(frmt))
+	res, err := out.Encode(frmt)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if frmt == format.CSV {
+		fmt.Println(presenter.CSVHeader())
+	}
+	fmt.Println(res)
 }
