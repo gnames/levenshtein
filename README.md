@@ -33,6 +33,21 @@ go get github.com/gnames/levenshtein/fzdiff
     Something,smoething,,,3,false
     ```
 
+- Change output.
+
+    ```bash
+    fzdiff "Something" "smoething" -f compact
+    {"string1":"Something","string2":"smoething","editDistance":3}
+
+
+    fzdiff "Something" "smoething" -f pretty
+    {
+      "string1": "Something",
+      "string2": "smoething",
+      "editDistance": 3
+    }
+    ```
+
 - Run `fzdiff` with max edit distance constraint:
 
     ```bash
