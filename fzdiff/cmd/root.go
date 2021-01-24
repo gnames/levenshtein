@@ -33,7 +33,6 @@ import (
 	"github.com/gnames/levenshtein"
 	"github.com/gnames/levenshtein/presenter"
 	"github.com/spf13/cobra"
-	"gitlab.com/gogna/gnparser/output"
 )
 
 var opts []levenshtein.Option
@@ -161,7 +160,7 @@ func compare(l levenshtein.Levenshtein, data []string,
 func compareFile(l levenshtein.Levenshtein, f io.Reader, frmt format.Format) {
 	batch := make([]levenshtein.Strings, 0, levenshtein.Batch)
 	if frmt == format.CSV {
-		fmt.Println(output.CSVHeader())
+		fmt.Println(presenter.CSVHeader())
 	}
 	r := csv.NewReader(f)
 

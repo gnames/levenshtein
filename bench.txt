@@ -1,25 +1,25 @@
 goos: linux
 goarch: amd64
 pkg: github.com/gnames/levenshtein
-BenchmarkCompare/CompareOnce-8         	 2395483	       497 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2391777	       502 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2417304	       502 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2405883	       499 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2398431	       499 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2406187	       501 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2398585	       497 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2394523	       498 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2408866	       499 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnce-8         	 2406439	       499 ns/op	      32 B/op	       1 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  546103	      2449 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  478765	      2405 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  514708	      2394 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  509046	      2377 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  463485	      2345 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  536911	      2531 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  516193	      2484 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  559826	      2454 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  549289	      2372 ns/op	    1168 B/op	       7 allocs/op
-BenchmarkCompare/CompareOnceDiff-8     	  486375	      2422 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2407882	       503 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2397735	       502 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2399022	       501 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2377950	       501 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2405164	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2397064	       499 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2396594	       501 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2403846	       502 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2410226	       502 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnce-8         	 2368905	       501 ns/op	      32 B/op	       1 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  558764	      2456 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  534796	      2498 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  531658	      2511 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  555392	      2481 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  463759	      2521 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  519579	      2514 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  561680	      2462 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  541250	      2373 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  554690	      2548 ns/op	    1168 B/op	       7 allocs/op
+BenchmarkCompare/CompareOnceDiff-8     	  498048	      2474 ns/op	    1168 B/op	       7 allocs/op
 PASS
-ok  	github.com/gnames/levenshtein	30.784s
+ok  	github.com/gnames/levenshtein	30.545s
