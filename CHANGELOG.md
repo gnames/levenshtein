@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## [v0.2.0]
+
+- Add: move `entity` to `ent` to be compatible with other packages.
+
 ## [v0.1.1]
 
 - Add [#10]: remove dependency on gnparser.
@@ -21,6 +25,7 @@
 
 This document follows [changelog guidelines]
 
+[v0.2.0]: https://github.com/gnames/levenshtein/compare/v0.1.1...v0.2.0
 [v0.1.1]: https://github.com/gnames/levenshtein/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/gnames/levenshtein/compare/v0.0.1...v0.1.0
 [v0.0.1]: https://github.com/gnames/levenshtein/compare/v0.0.0...v0.0.1
