@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/gnames/gnlib/gnuuid"
-	"github.com/gnames/levenshtein/entity/editdist"
+	"github.com/gnames/levenshtein/ent/editdist"
 	"github.com/gnames/levenshtein/presenter"
 	u "github.com/google/uuid"
 )

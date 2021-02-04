@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/gnames/levenshtein/entity/editdist"
+	"github.com/gnames/levenshtein/ent/editdist"
 	"github.com/stretchr/testify/assert"
 )
 

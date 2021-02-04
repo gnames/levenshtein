@@ -127,7 +127,7 @@ go test ./...
 You need to install [benchstat] for more readable restuls.
 
 ```bash
-cd entity/editdist
+cd ent/editdist
 go test -bench=. -benchmem -count=10 -run=XXX > bench.txt
 benchstat bench.txt
 ```
@@ -135,7 +135,7 @@ benchstat bench.txt
 An example of the benchmarking:
 
 ```bash
-cd entity/editdist
+cd ent/editdist
 benchstat bench.txt
 
 name                        time/op

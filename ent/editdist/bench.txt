@@ -1,6 +1,6 @@
 goos: linux
 goarch: amd64
-pkg: github.com/gnames/levenshtein/entity/editdist
+pkg: github.com/gnames/levenshtein/ent/editdist
 BenchmarkDist/CompareOnceMaxOff-8         	 1604438	       736 ns/op	      32 B/op	       1 allocs/op
 BenchmarkDist/CompareOnceMaxOff-8         	 1625553	       733 ns/op	      32 B/op	       1 allocs/op
 BenchmarkDist/CompareOnceMaxOff-8         	 1605240	       743 ns/op	      32 B/op	       1 allocs/op
@@ -62,4 +62,4 @@ BenchmarkDist/CompareDiffOn-8             	  533060	      2346 ns/op	    1168 B/
 BenchmarkDist/CompareDiffOn-8             	  540312	      2421 ns/op	    1168 B/op	       7 allocs/op
 BenchmarkDist/CompareDiffOn-8             	  572739	      2325 ns/op	    1168 B/op	       7 allocs/op
 PASS
-ok  	github.com/gnames/levenshtein/entity/editdist	99.122s
+ok  	github.com/gnames/levenshtein/ent/editdist	99.122s
