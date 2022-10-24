@@ -217,8 +217,8 @@ func termColors(s string) string {
 	})
 	var (
 		red    = "\033[1;31m"
-		green  = "\033[1;32m"
-		yellow = "\033[1;33m"
+		green  = "\033[1;30;42m"
+		yellow = "\033[1;30;43m"
 		end    = "\033[0m"
 	)
 	s = strings.ReplaceAll(s, "<ins>", green)
