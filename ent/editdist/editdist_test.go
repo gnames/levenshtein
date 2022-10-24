@@ -25,7 +25,7 @@ func TestDist(t *testing.T) {
 	for _, v := range testData {
 		msg := fmt.Sprintf("'%s' vs '%s'", v.str1, v.str2)
 		dist, _, _ := editdist.ComputeDistance(v.str1, v.str2, false)
-		assert.Equal(t, dist, v.dist, msg)
+		assert.Equal(t, v.dist, dist, msg)
 	}
 }
 
@@ -47,8 +47,8 @@ func TestMax(t *testing.T) {
 	for _, v := range testData {
 		msg := fmt.Sprintf("'%s' vs '%s'", v.str1, v.str2)
 		dist, ab := editdist.ComputeDistanceMax(v.str1, v.str2, 2)
-		assert.Equal(t, dist, v.dist, msg)
-		assert.Equal(t, ab, v.abort, msg)
+		assert.Equal(t, v.dist, dist, msg)
+		assert.Equal(t, v.abort, ab, msg)
 	}
 }
 
@@ -73,9 +73,36 @@ func TestDiff(t *testing.T) {
 	for _, v := range testData {
 		msg := fmt.Sprintf("'%s' vs '%s'", v.str1, v.str2)
 		dist, d1, d2 := editdist.ComputeDistance(v.str1, v.str2, true)
-		assert.Equal(t, dist, v.dist, msg)
-		assert.Equal(t, d1, v.d1, msg)
-		assert.Equal(t, d2, v.d2, msg)
+		assert.Equal(t, v.dist, dist, msg)
+		assert.Equal(t, v.d1, d1, msg)
+		assert.Equal(t, v.d2, d2, msg)
+	}
+}
+
+func TestDiffTerm(t *testing.T) {
+	testData := []struct {
+		str1, str2 string
+		dist       int
+		d1, d2     string
+	}{
+		{"Hello", "He1lo", 1, "He\033[1;33ml\033[0mlo", "He\033[1;33m1\033[0mlo"},
+		{"Pomatomus", "Poma  tomus", 2, "Poma\x1b[1;31m ̶ ̶\x1b[0mtomus", "Poma\033[1;32m  \033[0mtomus"},
+		{"Poma  tomus", "Pomatomus", 2, "Poma\033[1;32m  \033[0mtomus", "Poma\x1b[1;31m ̶ ̶\x1b[0mtomus"},
+		{"Boston", "Chicago", 7, "\x1b[1;31mC̶\x1b[0m\x1b[1;33mBoston\x1b[0m", "\033[1;32mC\033[0m\033[1;33mhicago\033[0m"},
+		{"Chicago", "Boston", 7, "\033[1;32mC\033[0m\033[1;33mhicago\033[0m", "\x1b[1;31mC̶\x1b[0m\x1b[1;33mBoston\x1b[0m"},
+		{"ebas", "bac", 2, "\033[1;32me\033[0mba\033[1;33ms\033[0m", "\x1b[1;31me̶\x1b[0mba\x1b[1;33mc\x1b[0m"},
+		{"rebase", "basic", 4, "\x1b[1;32mre\x1b[0mbas\x1b[1;31mi̶\x1b[0m\x1b[1;33me\x1b[0m", "\x1b[1;31mr̶e̶\x1b[0mbas\x1b[1;32mi\x1b[0m\x1b[1;33mc\x1b[0m"},
+		{"test1", "", 5, "\033[1;32mtest1\033[0m", "\x1b[1;31mt̶e̶s̶t̶1̶\x1b[0m"},
+		{"", "test2", 5, "\x1b[1;31mt̶e̶s̶t̶2̶\x1b[0m", "\033[1;32mtest2\033[0m"},
+		{"", "", 0, "", ""},
+	}
+
+	for _, v := range testData {
+		msg := fmt.Sprintf("'%s' vs '%s'", v.str1, v.str2)
+		dist, d1, d2 := editdist.ComputeDistanceTerm(v.str1, v.str2)
+		assert.Equal(t, v.dist, dist, msg)
+		assert.Equal(t, v.d1, d1, msg)
+		assert.Equal(t, v.d2, d2, msg)
 	}
 }
 

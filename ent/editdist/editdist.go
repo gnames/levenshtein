@@ -5,6 +5,8 @@
 package editdist
 
 import (
+	"regexp"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -190,6 +192,42 @@ func ComputeDistance(a, b string, diff bool) (int, string, string) {
 		d1, d2 = traceBack(s1, s2, m)
 	}
 	return int(x[lenS1]), d1, d2
+}
+
+// ComputeDistanceTerm comutes edit distance between two strings and
+// teturns back edit distance and strings that show the difference
+// between compared strings using terminal colors.
+func ComputeDistanceTerm(a, b string) (int, string, string) {
+	ed, aDiff, bDiff := ComputeDistance(a, b, true)
+	aDiff = termColors(aDiff)
+	bDiff = termColors(bDiff)
+	return ed, aDiff, bDiff
+}
+
+func termColors(s string) string {
+	rgDel := regexp.MustCompile(`<del>([^<]+)</del>`)
+	s = rgDel.ReplaceAllStringFunc(s, func(m string) string {
+		txt := m[5 : len(m)-6]
+		var res []rune
+		for _, v := range txt {
+			res = append(res, v)
+			res = append(res, '̶')
+		}
+		return "<del>" + string(res) + "</del>"
+	})
+	var (
+		red    = "\033[1;31m"
+		green  = "\033[1;32m"
+		yellow = "\033[1;33m"
+		end    = "\033[0m"
+	)
+	s = strings.ReplaceAll(s, "<ins>", green)
+	s = strings.ReplaceAll(s, "</ins>", end)
+	s = strings.ReplaceAll(s, "<del>", red)
+	s = strings.ReplaceAll(s, "</del>", end)
+	s = strings.ReplaceAll(s, "<subst>", yellow)
+	s = strings.ReplaceAll(s, "</subst>", end)
+	return s
 }
 
 func min(a, b uint8) uint8 {
