@@ -28,8 +28,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/gnames/gnlib/format"
-	"github.com/gnames/gnlib/sys"
+	"github.com/gnames/gnfmt"
+	"github.com/gnames/gnsys"
 	"github.com/gnames/levenshtein"
 	"github.com/gnames/levenshtein/presenter"
 	"github.com/spf13/cobra"
@@ -51,11 +51,11 @@ var rootCmd = &cobra.Command{
 		}
 
 		formatString, _ := cmd.Flags().GetString("format")
-		frmt, _ := format.NewFormat(formatString)
-		if frmt == format.FormatNone {
+		frmt, _ := gnfmt.NewFormat(formatString)
+		if frmt == gnfmt.FormatNone {
 			log.Printf("Cannot set format from '%s', setting format to csv.",
 				formatString)
-			frmt = format.CSV
+			frmt = gnfmt.CSV
 		}
 
 		withTags, _ := cmd.Flags().GetBool("tags")
@@ -89,9 +89,10 @@ func init() {
 	rootCmd.Flags().BoolP("version", "V", false, "Prints version information")
 	rootCmd.Flags().BoolP("tags", "t", false, "Adds diff tags into strings.")
 	rootCmd.Flags().IntP("max_edit_distance", "m", 0, "Max threshold for edit distance.")
-	rootCmd.Flags().StringP("format", "f", "csv", `Format of the output: "compact", "pretty", "csv".
+	rootCmd.Flags().StringP("format", "f", "csv", `Format of the output: "compact", "pretty", "csv", "tsv".
   compact: compact JSON,
   pretty: pretty JSON,
+  tsv: TSV,
   csv: CSV (DEFAULT)`)
 }
 
@@ -101,13 +102,14 @@ func showVersionFlag(cmd *cobra.Command) bool {
 	hasVersionFlag, _ := cmd.Flags().GetBool("version")
 
 	if hasVersionFlag {
-		fmt.Printf("\nversion: %s\n\n", levenshtein.Version)
+		fmt.Printf("\nVersion: %s\nBuild: %s\n\n",
+			levenshtein.Version, levenshtein.Build)
 	}
 	return hasVersionFlag
 }
 
 func processStdin(cmd *cobra.Command, l levenshtein.Levenshtein,
-	frmt format.Format) {
+	frmt gnfmt.Format) {
 	if !checkStdin() {
 		_ = cmd.Help()
 		os.Exit(0)
@@ -139,10 +141,11 @@ func getInput(cmd *cobra.Command, args []string) []string {
 }
 
 func compare(l levenshtein.Levenshtein, data []string,
-	frmt format.Format) {
+	frmt gnfmt.Format) {
 	if len(data) == 1 {
 		path := string(data[0])
-		if sys.FileExists(path) {
+		exists, _ := gnsys.FileExists(path)
+		if exists {
 			f, err := os.OpenFile(path, os.O_RDONLY, os.ModePerm)
 			if err != nil {
 				log.Fatal(err)
@@ -157,10 +160,13 @@ func compare(l levenshtein.Levenshtein, data []string,
 	compareStrings(l, data, frmt)
 }
 
-func compareFile(l levenshtein.Levenshtein, f io.Reader, frmt format.Format) {
+func compareFile(l levenshtein.Levenshtein, f io.Reader, frmt gnfmt.Format) {
 	batch := make([]levenshtein.Strings, 0, levenshtein.Batch)
-	if frmt == format.CSV {
-		fmt.Println(presenter.CSVHeader())
+	if frmt == gnfmt.CSV {
+		fmt.Println(gnfmt.ToCSV(presenter.CSVHeader(), ','))
+	}
+	if frmt == gnfmt.TSV {
+		fmt.Println(gnfmt.ToCSV(presenter.CSVHeader(), '\t'))
 	}
 	r := csv.NewReader(f)
 
@@ -200,14 +206,17 @@ func compareFile(l levenshtein.Levenshtein, f io.Reader, frmt format.Format) {
 }
 
 func compareStrings(l levenshtein.Levenshtein, data []string,
-	frmt format.Format) {
+	frmt gnfmt.Format) {
 	out := l.Compare(data[0], data[1])
 	res, err := out.Encode(frmt)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if frmt == format.CSV {
-		fmt.Println(presenter.CSVHeader())
+	if frmt == gnfmt.CSV {
+		fmt.Println(gnfmt.ToCSV(presenter.CSVHeader(), ','))
+	}
+	if frmt == gnfmt.TSV {
+		fmt.Println(gnfmt.ToCSV(presenter.CSVHeader(), '\t'))
 	}
 	fmt.Println(res)
 }

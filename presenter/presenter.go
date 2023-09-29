@@ -3,9 +3,7 @@ package presenter
 import (
 	"strconv"
 
-	gncsv "github.com/gnames/gnlib/csv"
-	"github.com/gnames/gnlib/encode"
-	"github.com/gnames/gnlib/format"
+	"github.com/gnames/gnfmt"
 )
 
 // Output is a representation of edit distance calculation results.
@@ -33,13 +31,15 @@ type Output struct {
 // Encode method produces representation of Output for consumption
 // either by a CLI user, or a WEB client. It supports 3 possible formats:
 // CSV, JSON (pretty), JSON compact.
-func (o Output) Encode(f format.Format) (string, error) {
+func (o Output) Encode(f gnfmt.Format) (string, error) {
 	switch f {
-	case format.CSV:
+	case gnfmt.CSV:
 		return o.encodeCSV()
-	case format.PrettyJSON:
+	case gnfmt.TSV:
+		return o.encodeTSV()
+	case gnfmt.PrettyJSON:
 		return o.encodeJSON(true)
-	case format.CompactJSON:
+	case gnfmt.CompactJSON:
 		return o.encodeJSON(false)
 	default:
 		return o.encodeCSV()
@@ -48,19 +48,30 @@ func (o Output) Encode(f format.Format) (string, error) {
 
 // CSVHeader produces a CSV header compatible with CSV output
 // of Output's Encode method.
-func CSVHeader() string {
-	return "String1,String2,Tags1,Tags2,EditDistance,Aborted"
+func CSVHeader() []string {
+	return []string{
+		"String1", "String2", "Tags1", "Tags2",
+		"EditDistance", "Aborted",
+	}
 }
 
 func (o Output) encodeCSV() (string, error) {
+	return o.encodeSV(',')
+}
+
+func (o Output) encodeTSV() (string, error) {
+	return o.encodeSV('\t')
+}
+
+func (o Output) encodeSV(sep rune) (string, error) {
 	row := []string{o.String1, o.String2, o.Tags1, o.Tags2,
 		strconv.Itoa(o.EditDist), strconv.FormatBool(o.Aborted),
 	}
-	return gncsv.ToCSV(row), nil
+	return gnfmt.ToCSV(row, sep), nil
 }
 
 func (o Output) encodeJSON(pretty bool) (string, error) {
-	enc := encode.GNjson{Pretty: pretty}
+	enc := gnfmt.GNjson{Pretty: pretty}
 	res, err := enc.Encode(o)
 	return string(res), err
 }

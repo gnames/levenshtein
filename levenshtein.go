@@ -3,14 +3,11 @@ package levenshtein
 import (
 	"sync"
 
-	"github.com/gnames/gnlib/gnuuid"
+	"github.com/gnames/gnuuid"
 	"github.com/gnames/levenshtein/ent/editdist"
 	"github.com/gnames/levenshtein/presenter"
 	u "github.com/google/uuid"
 )
-
-// Version of the package.
-var Version = "v.0.1.0"
 
 // Batch can be used to break a very large input into chunks.
 var Batch = 10_000
